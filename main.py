@@ -23,6 +23,14 @@ qa_openai_format =  [ {"prompt":q, "completion":a} for q,a in zip(questions,answ
 # print(qa_openai_format[4])
 # qa_openai_format[4]['prompt']
 
+# Control due to Davinci to test fine tuned model against
+# response = openai.Completion.create(
+            # model="text-davinci-003",
+            # prompt = qa_openai_format[4]['prompt'],
+            # max_tokens = 250,
+            # temperature = 0
+# )
+
 
 response = openai.Completion.create(
             model="text-babbage-001",
@@ -31,8 +39,15 @@ response = openai.Completion.create(
             temperature = 0
 )
 
+
 # response['choices'][0]['text']
 print(response['choices'][0]['text'])
+
+
+
+
+
+
 
 
 

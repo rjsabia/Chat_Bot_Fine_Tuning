@@ -47,7 +47,7 @@ response = openai.Completion.create(
 # print(response['choices'][0]['text'])
 
 # Get length of data frame
-# print('###########----->>>>\n','Lenght of Dataframe: ',len(qa_df))
+print('###########----->>>>\n','Length of Dataframe: ',len(qa_df))
 
 
 def num_tokens_from_string(string,encoding_name):
@@ -68,11 +68,14 @@ with open("example_training_data.json","w") as f:
 token_counter = 0
 
 for prompt_completion in qa_openai_format:
-    for prompt,completion in element.items():
+    # for prompt,completion in element.items():
+    for prompt,completion in prompt_completion.items():
         token_counter += num_tokens_from_string(prompt,'gpt2')
         token_counter += num_tokens_from_string(completion,'gpt2')
 
-token_counter # for babbage $0.0006 per 1000 tokens (training) * 4 epochs
+print(token_counter) # for babbage $0.0006 per 1000 tokens (training) * 4 epochs
+
+
 
 
 

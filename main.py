@@ -58,6 +58,7 @@ def num_tokens_from_string(string,encoding_name):
 # set amount of lines to use in dataset
 dataset_size = 500  # 500 out of the 4429 lines
 
+
 # This will write the dataset to a new json file
 with open("example_training_data.json","w") as f:
     for entry in qa_openai_format[:dataset_size]:
@@ -73,7 +74,10 @@ for prompt_completion in qa_openai_format:
         token_counter += num_tokens_from_string(prompt,'gpt2')
         token_counter += num_tokens_from_string(completion,'gpt2')
 
-print(token_counter) # for babbage $0.0006 per 1000 tokens (training) * 4 epochs
+# Below is a count of tokens to be used
+print(token_counter) # for babbage $0.0006 per 1000 tokens (training) and must train 4 epochs
+
+
 
 
 
